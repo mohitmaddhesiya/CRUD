@@ -1,9 +1,11 @@
 <html lang="en">
+<!-- this form is use for CRUD application -->
 <head>
 	<meta charset="utf-8">
 	<title>
      registeration_form
 	</title>
+	<link rel="stylesheet" href="<?php echo base_url();?>css/.css" type="text/css" media="screen" />
 </head>
 <body>
 		<table border="1">
