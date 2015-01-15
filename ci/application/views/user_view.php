@@ -16,7 +16,7 @@
 			<th>pincode</th>
 			<th>Email</th>
 		    <th>mobile</th>
-		    <th><!-- this is  redirect the index page --><a href="index.php/regis">add<a/></th>
+		    <th><a href="index.php/regis">add<a/></th>
 		    <?php foreach ($users as $user): ?>
 			<tr>
 			<td><?= $user['firstname']?></td>
