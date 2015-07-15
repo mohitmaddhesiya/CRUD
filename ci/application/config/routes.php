@@ -38,14 +38,40 @@
 |
 */
 
-$route['default_controller'] = "usercontrol";
+$route['default_controller'] = "homecontroller";
+$route['ci']="homecontroller";
+$route['ci/newsUpdation']='homecontroller';
+$route['newsUpadtion']='homecontroller/iframe';
 $route['404_override'] = '';
-$route['update/(:num)']="usercontrol/Updateuser/$1";
-$route['regis'] = "usercontrol/Create";
-$route['regis/(:num)']="usercontrol/edit/$1";
-$route['setuser']="usercontrol/setUserValue";
-
-
-
+$route['home']='homecontroller';
+$route['result']='resultcontroller/our_result';
+$route['faculty']='facultycontroller';
+$route['aboutus']='aboutuscontroller';
+$route['studymatrial']='studymatrialcontroller/retrieve';
+$route['contactus']='contactuscontroller';
+$route['ourtopper']='homecontroller/ourtopper';
+$route['login']='logincontroller';
+$route['logout']='logincontroller/logout';
+$route['modifycontactus']='contactuscontroller/modifycontactus';
+$route['modifycourse']='modifycourse';
+$route['course']='homecontroller/retrieve_course';
+$route['modifytoper']='modifytoper';
+$route['modifytoper/submit']='modifytoper/do_upload';
+$route['upload_controller/do_upload']='test/do_upload';
+$route['modifyresult']='resultcontroller/modifyresult';
+$route['modifystudymatrial']='studymatrialcontroller/adminuploadfile';
+$route['modifyfaculity']='facultycontroller/modifyfaculity';
+$route['newsupadtion']='newsupdatecontroller';
+$route['deleteourtopper']='modifytoper/deleteourtoppers';
+$route['deleteourtopper/(:num)/delete']='modifytoper/deletetopper/$1';
+$route['deletenews']='newsupdatecontroller/deletenews';
+$route['deletenews/(:num)/delete']='newsupdatecontroller/delete_news/$1';
+$route['deletefaculity']='facultycontroller/deleteretrive';
+$route['deletefaculity/(:num)/delete']='facultycontroller/delete_faculity/$1';
+$route['deletestudymatrial']='studymatrialcontroller/deleteretrieve';
+$route['deletestudymatrial/(:num)/delete']='studymatrialcontroller/delete_studymatrial/$1';
+$route['deleteourresult']='resultcontroller/deleteretrieve';
+$route['deleteourresult/(:num)/delete']='resultcontroller/delete_ourresult/$1';
+$route['downloads/(:num)']='studymatrialcontroller/downloads/$1';
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

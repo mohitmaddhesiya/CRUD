@@ -1,0 +1,1 @@
+create table studymatrial (id int primary key auto_increment,subject varchar(50),title varchar(200),writter varchar(100),filename varchar(100),path varchar(250),fullpath varchar(300),date varchar(20),upadateby varchar(50));

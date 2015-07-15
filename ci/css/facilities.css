@@ -1,0 +1,25 @@
+.td-color{
+background-color: #00FFFF;
+}
+.scroll
+{
+	max-height: 500px;
+   overflow-y: scroll;
+}
+.padding_q
+{
+	margin-top: 10px;
+	padding-left: 50px
+}
+.padding_p
+{
+	padding-left:63px
+}
+.padding_e
+{
+	padding-left: 85px
+}
+.padding_top
+{
+	margin-top: 20px;
+}

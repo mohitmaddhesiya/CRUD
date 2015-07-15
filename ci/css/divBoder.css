@@ -1,0 +1,32 @@
+.border{
+ 	border-style: solid;
+    border-width: medium;
+    border-top:none;
+    border-right: none;
+     border-bottom: none;
+}
+.borderleft{
+	border-style: solid;
+    border-width: medium;
+    border-top:none;
+    border-right:none;
+     border-bottom: none;
+     border-left:solid;
+ }
+ .borderright{
+	border-style: solid;
+    border-width: medium;
+    border-top:none;
+    border-right:solid;
+     border-bottom: none;
+     border-left:solid;
+ }
+ .borderbottom{
+ 	border-style: solid;
+    border-width: medium;
+    border-top:none;
+    border-right:none;
+     border-bottom: solid;
+     border-left:none;
+
+ }

@@ -52,7 +52,8 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array();
+
+$autoload['libraries'] = array('database','session');
 
 
 /*
@@ -64,7 +65,7 @@ $autoload['libraries'] = array();
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array();
+$autoload['helper'] = array('url','html','form','file');
 
 
 /*
@@ -99,6 +100,7 @@ $autoload['config'] = array();
 $autoload['language'] = array();
 
 
+$autoload['drivers'] = array('session');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Models

@@ -1,0 +1,1 @@
+insert into toppersay values("","Rahul","2014","I have gotted 91.5% In 12th of up board 2013.This is because of good guidence and Effort from JMD classes. JMD classes are best coaching center.","topper.jpg","/home/pradeep/Documents/mohit/CRUD/ci/our_result/","/home/pradeep/Documents/mohit/CRUD/ci/our_result/photo_004.jpg ");
