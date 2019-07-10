@@ -1,44 +1,56 @@
 # Meter generation for dataconn
       
-	  As per the requirement LoggingMeterRegistry is most suitable options among all available registries. LoggingMeterRegistry dumps logs in a files. 
+	   Proposed Mechanism : Micrometer
+	
+	   ## Micrometer
+	   Micrometer provides a simple facade over the instrumentation clients for the most popular monitoring systems. It is SLF4J, but for application metrics.
 	  
-		  It summarizes the metrics to a logger
-		  It dumps the metrics in log format. ( We can do away with the log prefix and keep only the log message by modyfying the logback.xml )
-		  It works on step. The width of the step is the interval at which metrics are dumped. It is set to 1 minute for LoggingMeterRegistry.
-		  Gauge metrics are dumped in every cycle (of 1 minute).
-		  Counter and Timer metrics are updated only when the value changes.
-		  We can create custom config as per requirement. 
+	   Micrometer works with Meter Registries. It provides Meter registries for various application monitoring systems. Since we are not sending metrics to any monitoring system, we choose
+	   LoggingMeterRegistry.
+		
+		
+	   ### LoggingMeterRegistry 
+	          1) LoggingMeterRegistry dumps logs in a files.  
+			  2) It summarizes the metrics to a logger
+			  3) It works on step. The width of the step is the interval at which metrics are dumped. It is set to 1 minute for LoggingMeterRegistry.
+			  4) Gauge metrics are dumped in every cycle (of 1 minute).
+			  5) Counter and Timer metrics are updated only when the value changes.
+			  6) We can create custom config as per requirement. 
 
 		
 	
  
-# How to use 
+       ## How to use 
 	
-	Add maven dependency in pox.xml
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-core</artifactId>
-			<version>1.2.0</version>
-		</dependency>
+	     ### Add maven dependency in pox.xml
+		 <dependency>
+			 <groupId>io.micrometer</groupId>
+			 <artifactId>micrometer-core</artifactId>
+			 <version>1.2.0</version>
+		 </dependency>
 	
-	Just before creating a registry for each component. we can include isInstrumentationAvailable method to check class path for Micrometer. isInstrumentationAvailable methd provided by Project Reactor.
-		Metrics.isInstrumentationAvailable();  // It will return true or false
+	     ### isInstrumentationAvailable()
+		 Just before creating a registry for each component. we can include isInstrumentationAvailable method to check class path for Micrometer. isInstrumentationAvailable methd provided by Project Reactor.
+		
+		 Metrics.isInstrumentationAvailable();  // It will return true or false
 	
-	create LoggerMeterRegistry object
+	     ### create LoggerMeterRegistry
   
-		LoggingMeterRegistry oneSimpleMeter = new LoggingMeterRegistry();  // for using default configuration
-		LoggingMeterRegistry oneSimpleMeter = new LoggingMeterRegistry(new CustomConfig(), Clock.SYSTEM); // for using custom config for LoggerMeterRegistry
+		 LoggingMeterRegistry oneSimpleMeter = new LoggingMeterRegistry();  // for using default configuration
+		 LoggingMeterRegistry oneSimpleMeter = new LoggingMeterRegistry(new CustomConfig(), Clock.SYSTEM); // for using custom config for LoggerMeterRegistry
 	
-	For flux default metrics we have to add registry
+	     ### Flux default metrics 
+		 For flux default metrics , we have to add registry
 		
-		io.micrometer.core.instrument.Metrics.addRegistry(oneSimpleMeter);
+		 io.micrometer.core.instrument.Metrics.addRegistry(oneSimpleMeter);
 		
-	Create a FileAppender in logback.xml for each component in DataConn. Attach the logger for LoggingMeterRegistry class with the defined FileAppender.We can also write headers to the file.
+	     Create a FileAppender in logback.xml for each component in DataConn. Attach the logger for LoggingMeterRegistry class with the defined FileAppender. We can also write headers to the file.
 	
-# Example
+        ## Example
+
+```groovy
 
 package logging;
-
 import io.micrometer.core.instrument.logging.LoggingMeterRegistry;
 import reactor.core.publisher.Flux;
 public class MicroMeterLog {
@@ -50,6 +62,7 @@ public class MicroMeterLog {
 
 
         Flux < String > dataStream = Flux.just("AA", "BB", "CC", "DD");
+
         dataStream.name("micor-meter-poc").tag("key", "value").metrics().subscribe(p - > {
             System.out.println(" Value -- " + p);
             try {
@@ -62,3 +75,6 @@ public class MicroMeterLog {
         Thread.sleep(1000000000);
     }
 };
+```
+
+
