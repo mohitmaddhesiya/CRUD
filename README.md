@@ -1,4 +1,4 @@
-#Meter generation for dataconn
+# Meter generation for dataconn
       
 	  As per the requirement LoggingMeterRegistry is most suitable options among all available registries. LoggingMeterRegistry dumps logs in a files. 
 	  
@@ -12,7 +12,7 @@
 		
 	
  
-#How to use 
+# How to use 
 	
 	Add maven dependency in pox.xml
 		<dependency>
@@ -35,13 +35,12 @@
 		
 	Create a FileAppender in logback.xml for each component in DataConn. Attach the logger for LoggingMeterRegistry class with the defined FileAppender.We can also write headers to the file.
 	
-#Example
+# Example
 
 package logging;
 
 import io.micrometer.core.instrument.logging.LoggingMeterRegistry;
 import reactor.core.publisher.Flux;
-
 public class MicroMeterLog {
     public static void main(String[] args) throws InterruptedException {
 
