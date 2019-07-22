@@ -1,7 +1,8 @@
-# Meteric generation for dataconn
+# Metric generation for dataconn
 
 Proposed Mechanism : Micrometer
-	
+[wiki](https://ccbu-wiki.cisco.com/pages/viewpage.action?spaceKey=CJHybrid&title=Micrometer+POC+for+Metrics+Generation)
+
 ## Micrometer
 	   
 Micrometer provides a simple facade over the instrumentation clients for the most popular monitoring systems. It is SLF4J, but for application metrics.
@@ -29,22 +30,27 @@ Micrometer works with Meter Registries. It provides Meter registries for various
  </dependency>
 	
 ### isInstrumentationAvailable()
-Just before creating a registry for each component. we can include isInstrumentationAvailable method to check class path for Micrometer. isInstrumentationAvailable methd provided by Project Reactor.
+Just before creating a registry for each component. we can include isInstrumentationAvailable method to check class path for Micrometer. isInstrumentationAvailable method provided by Project Reactor.
 		
 Metrics.isInstrumentationAvailable();  // It will return true or false
 	
-### create LoggerMeterRegistry
+### Create LoggerMeterRegistry
   
+For each dataconn component whose metrics we want to capture and log, an instance of LoggingMeterRegistry needs to be created. 
+
 LoggingMeterRegistry oneSimpleMeter = new LoggingMeterRegistry();  // for using default configuration
 LoggingMeterRegistry oneSimpleMeter = new LoggingMeterRegistry(new CustomConfig(), Clock.SYSTEM); // for using custom config for LoggerMeterRegistry
 	
+### LogBack.xml
+
+Create a FileAppender in logback.xml for each component in DataConn. Attach the logger for LoggingMeterRegistry class with the defined FileAppender. We can also write headers to the file.
+
+
 ### Flux default metrics 
 For flux default metrics , we have to add registry
 		
 io.micrometer.core.instrument.Metrics.addRegistry(oneSimpleMeter);
-		
-Create a FileAppender in logback.xml for each component in DataConn. Attach the logger for LoggingMeterRegistry class with the defined FileAppender. We can also write headers to the file.
-	
+			
 ## Example
 
 ```groovy
