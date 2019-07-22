@@ -1,8 +1,7 @@
 # Metric generation for dataconn
 
 Proposed Mechanism : Micrometer
- 
-Documention : [wiki](https://ccbu-wiki.cisco.com/pages/viewpage.action?spaceKey=CJHybrid&title=Micrometer+POC+for+Metrics+Generation)
+Documentation : [wiki](https://ccbu-wiki.cisco.com/pages/viewpage.action?spaceKey=CJHybrid&title=Micrometer+POC+for+Metrics+Generation)
 
 ## Micrometer
 	   
@@ -82,5 +81,3 @@ public class MicroMeterLog {
     }
 };
 ```
-
-
