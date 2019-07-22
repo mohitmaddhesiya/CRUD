@@ -2,7 +2,7 @@
 
 Proposed Mechanism : Micrometer
 
-[wiki] (https://ccbu-wiki.cisco.com/pages/viewpage.action?spaceKey=CJHybrid&title=Micrometer+POC+for+Metrics+Generation)
+[wiki](https://ccbu-wiki.cisco.com/pages/viewpage.action?spaceKey=CJHybrid&title=Micrometer+POC+for+Metrics+Generation)
 
 ## Micrometer
 	   
